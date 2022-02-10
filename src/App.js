@@ -8,12 +8,13 @@ import { Navbar, Hero, Footer } from "./components/index";
 import { useState } from "react";
 import CategoryPage from "./pages/CategoryPage";
 import Signup from "./pages/Signup";
+import FormPage from "./pages/FormPage";
 
 function App() {
   const [search, setSearch] = useState("");
 
   return (
-    <div>
+    <>
       <div className="main-container">
         <Navbar searchval={search} searchset={setSearch} />
       </div>
@@ -24,17 +25,18 @@ function App() {
 
       <div>
         <Routes>
-          <Route path="/details/:id" element={<DetailsPage />} />
           <Route path="/shop" element={<Shop searchval={search} />} />
-          <Route path="/" element={<HomePage searchval={search} />} />
-          <Route path="/categories/:id" element={<CategoryPage />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/blog" element={<FormPage />} />
+          <Route path="/details/:id" element={<DetailsPage />} />
+          <Route path="/categories/:id" element={<CategoryPage />} />
+          <Route path="/" element={<HomePage searchval={search} />} />
         </Routes>
       </div>
       <div>
         <Footer />
       </div>
-    </div>
+    </>
   );
 }
 
